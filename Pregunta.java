@@ -1,14 +1,14 @@
 public class Pregunta {
-    String afirmacio;
-    boolean cert;
-    int dificultat;
+    String enunciat;
+    boolean val;
+    int score;
 	
-	public Pregunta(String afirmacio, boolean cert, int dificultat){
-		this.afirmacio=afirmacio;
-		this.cert=cert;
-		this.dificultat=dificultat;
+	public Pregunta(String enunciat, boolean val, int score){
+		this.enunciat=enunciat;
+		this.val=val;
+		this.score=score;
 	}
-	public String getAfirmacio(){ return this.afirmacio; }
-	public boolean getCert() { return this.cert; }
-	public int getDificultat() { return this.dificultat; }
+	public String getEnunciat(){ return this.enunciat; }
+	public boolean getValue() { return this.cert; }
+	public int getScore() { return this.sore; }
 }

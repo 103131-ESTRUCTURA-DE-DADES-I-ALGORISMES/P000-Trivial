@@ -1,5 +1,5 @@
 public class Partida {
-    private static ArrayList<Pregunta> preguntas = new ArrayList<>();
+    private static ArrayList<Pregunta> preguntas=new ArrayList<>();
 
     public Partida() {
         preguntas.add(new Pregunta("El Titanic en el viatge inaugural va des de Southampton, Anglaterra fins a Washington, Estats Units", false, 2));
@@ -15,48 +15,41 @@ public class Partida {
     }
 
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
+        Scanner scan=new Scanner(System.in);
+        // ordenar de + dificil a -
         Collections.shuffle(preguntas);
 
-        int correcte, puntuacio;
-        String nom, resposta;
+        int num_correcte, score;
+        String name, resposta;
 
-        System.out.println("Ingresa tu nombre: ");
-        nom=sc.nextLine();
+        num_correcte=0; score=0;
 
-        System.out.println("Muy bien " + nom + ", se estan mezclado las preguntas");
+        System.out.println("Com et dius: "); name=scan.nextLine();
+
+        System.out.println("Muy bien " + name + ", se estan mezclado las preguntas");
         System.out.println("Una vez mezcladas responde Verdadero (v) o  Falso (f) a las siguientes afirmaciones");
 
-        for (int i = 0; i < preguntas.size(); i++) {
-            System.out.println( i + ". " + preguntas.get(i).getAfirmacio());
+        for (int i=0; i<preguntas.size();i++) {
+            System.out.println( i + ". " + preguntas.get(i).getEnunciat());
 
             System.out.println("Verdadero (v) o falso(f)?");
-            resposta = sc.nextLine();
+            resposta=scan.nextLine().toLowerCase();
 
-            if (resposta == 'v') {
-                if (preguntas.get(i).getCert() == true) {
-
-                    System.out.println("Correcto");
-                    correcte++;
-                    puntuacio += preguntas.get(i).getDificultat();
-
-                } else {
-                    System.out.println("Incorrecto");
-                }
-            } else if ( resposta == 'f') {
-                if ( preguntas.get(i).getCert() == false) {
-                    System.out.println("Correcto");
-                    correcte++;
-                    puntuacio += preguntas.get(i).getDificultat();
-                } else {
-                    System.out.println("Incorrecto");
-                }
-            }
+            if (preguntas.get(i).getValue()==resposta.equals("v")) {
+                System.out.println("Correcto");
+                score+=preguntas.get(i).getScore(); num_correcte++;
+            } else System.out.println("Incorrecto");
+            
             System.out.println("");
         }
-        System.out.println(" Has respondido correctamente a " + correcte );
-        System.out.println(" Has obtenido " + puntuacio + " puntos");
-        System.out.println(" El porcentage de aciertos es de  " + (correcte / preguntas.size()*100) );
+        
+    }
+
+    private void stats() {
+        System.out.println(
+            "Total de respostes encertades: "+num_correcte+"\n"+
+            "Puntuació obtinguda: "+score+"\n"+
+            "Tant per cent de respostes encertades respecte del total: "+(num_correcte / preguntas.size()*100)+"%"
+        );
     }
 }
