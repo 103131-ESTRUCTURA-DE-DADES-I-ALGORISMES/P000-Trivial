@@ -1,8 +1,7 @@
 public class Pregunta {
-
-	String afirmacio;
-	boolean cert;
-	int dificultat;
+    String afirmacio;
+    boolean cert;
+    int dificultat;
 	
 	public Pregunta(String afirmacio, boolean cert, int dificultat){
 		this.afirmacio=afirmacio;
