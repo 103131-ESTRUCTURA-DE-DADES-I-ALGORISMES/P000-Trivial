@@ -1,5 +1,6 @@
 public class Partida {
     private static ArrayList<Pregunta> preguntas=new ArrayList<>();
+    private static ArrayList<Jugador> jugadors=new ArrayList<>();
 
     public Partida() {
         preguntas.add(new Pregunta("El Titanic en el viatge inaugural va des de Southampton, Anglaterra fins a Washington, Estats Units", false, 2));
@@ -16,7 +17,7 @@ public class Partida {
 
     public static void main(String[] args) {
         Scanner scan=new Scanner(System.in);
-        
+
         // ordenar de + dificil a -
         Collections.shuffle(preguntas);
 
