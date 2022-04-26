@@ -19,12 +19,11 @@ public class Partida {
         Scanner sc = new Scanner(System.in);
         Collections.shuffle(preguntas);
 
-        int correcte = 0;
-        int puntuacio = 0;
+        int correcte, puntuacio;
         String nom, resposta;
 
         System.out.println("Ingresa tu nombre: ");
-        nom = sc.nextLine();
+        nom=sc.nextLine();
 
         System.out.println("Muy bien " + nom + ", se estan mezclado las preguntas");
         System.out.println("Una vez mezcladas responde Verdadero (v) o  Falso (f) a las siguientes afirmaciones");
