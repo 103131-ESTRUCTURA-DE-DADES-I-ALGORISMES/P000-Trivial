@@ -42,7 +42,8 @@ public class Partida {
             
             System.out.println("");
         }
-        
+
+        stats();
     }
 
     private void stats() {
