@@ -2,16 +2,16 @@ public class Partida {
     private static ArrayList<Pregunta> preguntas = new ArrayList<>();
 
     public Partida() {
-        preguntas.add(new Pregunta("La noche estrellada la pintó Vicent Van Gogh", true, 2));
-        preguntas.add(new Pregunta("El jazz nació en Francia", false, 1));
-        preguntas.add(new Pregunta("Napoleón Bonaparte murió envenenado", false, 1));
-        preguntas.add(new Pregunta("Michael Jackson nació en Canadá", false, 2));
-        preguntas.add(new Pregunta("Nueva Zelanda prohíbe poner a los niños ciertos nombres", true, 2));
-        preguntas.add(new Pregunta("El nombre de Nike esta basado en una diosa griega", true, 2));
-        preguntas.add(new Pregunta("Una banana fue la mascota de la Copa Mundial de Fútbol de 1982", false, 3));
-        preguntas.add(new Pregunta("El francés es idioma oficial en Haití", true, 1));
-        preguntas.add(new Pregunta("La capital de Islandia es Quebec", false, 2));
-        preguntas.add(new Pregunta("Adolf Hitler fue abandonado de bebé en un orfanato", false, 3));
+        preguntas.add(new Pregunta("El Titanic en el viatge inaugural va des de Southampton, Anglaterra fins a Washington, Estats Units", false, 2));
+        preguntas.add(new Pregunta("El Brasil ha estat l'únic país llatinoamericà que ha organitzat uns Jocs Olímpics", false, 1));
+        preguntas.add(new Pregunta("L'any 2017 es va fer el primer trasplantament de cervell d'éssers humans", true, 1));
+        preguntas.add(new Pregunta("Michael Jackson era Musulmà", false, 2));
+        preguntas.add(new Pregunta("Els assassins en sèrie tenen un coeficient intel·lectual inferior a la mitjana", false, 2));
+        preguntas.add(new Pregunta("Durante la adultez nuestro cuerpo tiene 300 huesos mientras que en la niñez 206", false, 2));
+        preguntas.add(new Pregunta("Guillermo Marconi en 1943 se reafirma como el inventor de la radio por encima de Nikola Tesla", false, 3));
+        preguntas.add(new Pregunta("Cada dia produïm més d´un litre de saliva", true, 1));
+        preguntas.add(new Pregunta("Los Angeles és la segona ciutat del món amb més mexicans", true, 2));
+        preguntas.add(new Pregunta("El Koala dorm 22 hores al dia", true, 3));
     }
 
     public static void main(String[] args) {
