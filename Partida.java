@@ -9,13 +9,14 @@ public class Partida {
         preguntas.add(new Pregunta("Els assassins en sèrie tenen un coeficient intel·lectual inferior a la mitjana", false, 2));
         preguntas.add(new Pregunta("Durante la adultez nuestro cuerpo tiene 300 huesos mientras que en la niñez 206", false, 2));
         preguntas.add(new Pregunta("Guillermo Marconi en 1943 se reafirma como el inventor de la radio por encima de Nikola Tesla", false, 3));
-        preguntas.add(new Pregunta("Cada dia produïm més d´un litre de saliva", true, 1));
+        preguntas.add(new Pregunta("Cada dia produïm més d'un litre de saliva", true, 1));
         preguntas.add(new Pregunta("Los Angeles és la segona ciutat del món amb més mexicans", true, 2));
         preguntas.add(new Pregunta("El Koala dorm 22 hores al dia", true, 3));
     }
 
     public static void main(String[] args) {
         Scanner scan=new Scanner(System.in);
+        
         // ordenar de + dificil a -
         Collections.shuffle(preguntas);
 
@@ -25,25 +26,25 @@ public class Partida {
         num_correcte=0; score=0;
 
         System.out.println("Com et dius: "); name=scan.nextLine();
-
-        System.out.println("Muy bien " + name + ", se estan mezclado las preguntas");
+        System.out.println("Muy bien "+name+", se estan mezclado las preguntas");
         System.out.println("Una vez mezcladas responde Verdadero (v) o  Falso (f) a las siguientes afirmaciones");
 
-        for (int i=0; i<preguntas.size();i++) {
-            System.out.println( i + ". " + preguntas.get(i).getEnunciat());
-
-            System.out.println("Verdadero (v) o falso(f)?");
-            resposta=scan.nextLine().toLowerCase();
-
-            if (preguntas.get(i).getValue()==resposta.equals("v")) {
-                System.out.println("Correcto");
-                score+=preguntas.get(i).getScore(); num_correcte++;
-            } else System.out.println("Incorrecto");
-            
-            System.out.println("");
-        }
+        joc();
 
         stats();
+    }
+
+    private void joc() {
+        for (Pregunta pregunta : preguntas) {
+            System.out.println("\n"+pregunta.getEnunciat()+"\nVerdader (v) o Fals(f)?");
+            resposta=scan.nextLine().toLowerCase();
+
+            if (pregunta.getValue()==resposta.equals("v")) {
+                System.out.println("Correcto");
+                score+=pregunta.getScore(); num_correcte++;
+            } else
+                System.out.println("Incorrecto");
+        }
     }
 
     private void stats() {
