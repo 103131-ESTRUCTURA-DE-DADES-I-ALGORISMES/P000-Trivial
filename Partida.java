@@ -18,8 +18,8 @@ public class Partida {
     public static void main(String[] args) {
         Scanner scan=new Scanner(System.in);
 
-        // ordenar de + dificil a -
-        Collections.shuffle(preguntas);
+        // TODO: concretar si es de +a- o -a+ dificil (canviar Pregunta.java)
+        Collections.sort(preguntas);
 
         int num_correcte, score;
         String name, resposta;
@@ -27,9 +27,7 @@ public class Partida {
         num_correcte=0; score=0;
 
         intro();
-
         joc();
-
         stats();
     }
 
@@ -38,11 +36,13 @@ public class Partida {
             System.out.println("\n"+pregunta.getEnunciat()+"\nVerdader (v) o Fals(f)?");
             resposta=scan.nextLine().toLowerCase();
 
-            if (pregunta.getValue()==resposta.equals("v")) {
-                System.out.println("Correcto");
-                score+=pregunta.getScore(); num_correcte++;
-            } else
-                System.out.println("Incorrecto");
+            for (Jugador j : jugadors)
+
+            // if (pregunta.getValue()==resposta.equals("v")) {
+            //     System.out.println("Correcte");
+            //     score+=pregunta.getScore(); num_correcte++;
+            // } else
+            //     System.out.println("Incorrecte");
         }
     }
 
@@ -56,14 +56,19 @@ public class Partida {
 
     private void intro() {
         System.out.println("Benvingut a la partida d'trivial");
-        // millorara l'explicacio
+        // TODO: millorar l'explicacio
         System.out.println("Primer, per favor, introdueix el nom dels jugadors. Quan acabi, prem intro per començar");
        
-        int cntJ-0;
-        System.out.println("\nNom del jugador 1:");
-        String name=scan.nextLine();
-        Jugador jugador=new Jugador(name);
-        jugadors.add(jugador);
-
+        int cntJ=1; String name;
+        do {
+            System.out.println("\nNom del jugador "+cntJ+": ");
+            name=scan.nextLine();
+            if (!name.equals("")){
+                Jugador jugador=new Jugador(name);
+                jugadors.add(jugador);
+            }
+        } while (!name.equals(""));
+        if (jugadors.length()==0) 
+            throw new Exception("Que fas? no vols jugar? No hi ha jugadors");
     }
 }
