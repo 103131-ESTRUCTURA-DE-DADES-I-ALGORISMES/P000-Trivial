@@ -26,9 +26,7 @@ public class Partida {
 
         num_correcte=0; score=0;
 
-        System.out.println("Com et dius: "); name=scan.nextLine();
-        System.out.println("Muy bien "+name+", se estan mezclado las preguntas");
-        System.out.println("Una vez mezcladas responde Verdadero (v) o  Falso (f) a las siguientes afirmaciones");
+        intro();
 
         joc();
 
@@ -54,5 +52,18 @@ public class Partida {
             "Puntuació obtinguda: "+score+"\n"+
             "Tant per cent de respostes encertades respecte del total: "+(num_correcte / preguntas.size()*100)+"%"
         );
+    }
+
+    private void intro() {
+        System.out.println("Benvingut a la partida d'trivial");
+        // millorara l'explicacio
+        System.out.println("Primer, per favor, introdueix el nom dels jugadors. Quan acabi, prem intro per començar");
+       
+        int cntJ-0;
+        System.out.println("\nNom del jugador 1:");
+        String name=scan.nextLine();
+        Jugador jugador=new Jugador(name);
+        jugadors.add(jugador);
+
     }
 }

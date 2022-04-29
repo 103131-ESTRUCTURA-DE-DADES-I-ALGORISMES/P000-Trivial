@@ -15,6 +15,6 @@ public class Jugador {
     public int getEncertades() { return this.encertades; }
 
     public void incrementScore(int score) { this.score+=score; }
-    public void deccrementScore(int score) { this.score-=score; }
+    public void decrementScore(int score) { this.score-=score; }
     public void incrementEncertades() { this.encertades++; }
 }
