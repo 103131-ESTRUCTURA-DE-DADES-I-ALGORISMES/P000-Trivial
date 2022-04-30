@@ -10,11 +10,18 @@ public class Jugador {
         this.encertades=0;
     }
 
-    public String getName() { return this.name; }
-    public int getScore() { return this.score; }
-    public int getEncertades() { return this.encertades; }
 
     public void incrementScore(int score) { this.score+=score; }
     public void decrementScore(int score) { this.score-=score; }
     public void incrementEncertades() { this.encertades++; }
+    
+    public String getName() { return this.name; }
+    public int getScore() { return this.score; }
+    public int getEncertades() { return this.encertades; }
+
+
+    @Override
+    public int compareTo(Jugador j) {
+		return this.score-((Jugador)j).getscore();
+    }
 }

@@ -17,14 +17,11 @@ public class Partida {
 
     public static void main(String[] args) {
         Scanner scan=new Scanner(System.in);
-
-        // TODO: concretar si es de +a- o -a+ dificil (canviar Pregunta.java)
         Collections.sort(preguntas);
 
         int num_correcte, score;
         String name, resposta;
-
-        num_correcte=0; score=0;
+        num_correcte=score=0; // == num_correcte=0,score=0 ?
 
         intro();
         joc();
@@ -33,25 +30,30 @@ public class Partida {
 
     private void joc() {
         for (Pregunta pregunta : preguntas) {
-            System.out.println("\n"+pregunta.getEnunciat()+"\nVerdader (v) o Fals(f)?");
-            resposta=scan.nextLine().toLowerCase();
+            System.out.println("\n"+pregunta.getEnunciat()+"\nVerdader (v) o Fals(f)? "+pregunta.getScore+" punts.");
 
-            for (Jugador j : jugadors)
+            Collections.shuffle(jugadors);
+            for(Jugador j : jugadors){
+                do{
+                    System.out.println("Resposta de'n jugador/a "+J.getName()+": ");
+                    resposta=scan.nextLine().toLowerCase();
+                }while(!resposta.equals("f") || !resposta.equals("v"));
 
-            // if (pregunta.getValue()==resposta.equals("v")) {
-            //     System.out.println("Correcte");
-            //     score+=pregunta.getScore(); num_correcte++;
-            // } else
-            //     System.out.println("Incorrecte");
+                if(pregunta.getValue()==resposta.equals("v")){
+                    j.incrementScore(pregunta.getScore());
+                    j.incrementEncertades();
+                }
+            }
+            System.out.println("La resposta era: " + (pregunta.getValue(? "VERDADER" : "FALS")));
         }
     }
 
     private void stats() {
-        System.out.println(
-            "Total de respostes encertades: "+num_correcte+"\n"+
-            "Puntuació obtinguda: "+score+"\n"+
-            "Tant per cent de respostes encertades respecte del total: "+(num_correcte / preguntas.size()*100)+"%"
-        );
+        System.out.println("\nHA GUANYAT: "+jugadors[i].getName());
+        System.out.println("\n\nTAULA DE RESULTATS:");
+        Collections.sort(jugadors);
+        for(int i=0; i<len(jugadors); i++)
+            System.out.println((i+1)+". "+jugadors[i].getName()+" amb "+jugadors[i].getScore()+"punts");
     }
 
     private void intro() {
