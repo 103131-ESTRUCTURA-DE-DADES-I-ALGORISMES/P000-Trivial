@@ -1,4 +1,6 @@
-public class Jugador { 
+package trivia;
+
+public class Jugador implements Comparable<Jugador> { 
 
     private String name;
     private int score;
@@ -21,6 +23,6 @@ public class Jugador {
 
     @Override
     public int compareTo(Jugador j) {
-		return this.score-((Jugador)j).getscore();
+		return ((Jugador)j).getScore()-this.score;
     }
 }
