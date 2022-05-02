@@ -19,19 +19,14 @@ public class Partida {
         preguntes.add(new Pregunta("Cada dia produïm més d'un litre de saliva", true, 1));
         preguntes.add(new Pregunta("Los Angeles és la segona ciutat del món amb més mexicans", true, 2));
         preguntes.add(new Pregunta("El Koala dorm 22 hores al dia", true, 3));
+        
+        scan=new Scanner(System.in);
     }
 
-    public static void main(String[] args) throws Exception {
-        scan=new Scanner(System.in);
-        
+    public static void main(String[] args) throws Exception {        
         Partida partida=new Partida();
         Collections.sort(preguntes);
-        
-        int num_correcte, score;
-        num_correcte=score=0; // == num_correcte=0,score=0 ?
 
-        System.out.println(preguntes.size());
-        
         partida.intro();
         preguntes.forEach(pregunta->partida.joc(pregunta));
         partida.stats();
@@ -48,7 +43,7 @@ public class Partida {
     private void tirada(Jugador j, Pregunta pregunta) {
     	String resposta;
     	do{
-            System.out.println("Resposta de'n jugador/a "+j.getName()+": ");
+            System.out.println("\nResposta de'n jugador/a "+j.getName()+": ");
             resposta=scan.nextLine().toLowerCase();
         } while(!resposta.equals("f") && !resposta.equals("v"));
 
@@ -56,6 +51,8 @@ public class Partida {
             j.incrementScore(pregunta.getScore());
             j.incrementEncertades();
         }
+        
+        j.incrementRespostes();
     }
     
     private void stats() {
@@ -63,7 +60,7 @@ public class Partida {
         System.out.println("\n\nTAULA DE RESULTATS:");
         Collections.sort(jugadors);
         for(int i=0; i<jugadors.size(); i++)
-            System.out.println((i+1)+". "+jugadors.get(i).getName()+" amb "+jugadors.get(i).getScore()+" punts");
+            System.out.println((i+1)+". "+jugadors.get(i));
     }
 
     private void intro() throws Exception {
