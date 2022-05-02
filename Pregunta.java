@@ -16,6 +16,5 @@ public class Pregunta {
     public int compareTo(Pregunta p) {
         int s=((Pregunta)p).getscore();
         return s-this.score; // de mes a menys facil.
-		// return this.score-s; // de menys a mes facil.
     }
 }

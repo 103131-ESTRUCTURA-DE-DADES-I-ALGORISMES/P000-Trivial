@@ -19,7 +19,6 @@ public class Jugador {
     public int getScore() { return this.score; }
     public int getEncertades() { return this.encertades; }
 
-
     @Override
     public int compareTo(Jugador j) {
 		return this.score-((Jugador)j).getscore();

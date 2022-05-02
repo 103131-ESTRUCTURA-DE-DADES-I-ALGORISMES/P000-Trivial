@@ -59,7 +59,7 @@ public class Partida {
     private void intro() {
         System.out.println("Benvingut a la partida d'trivial");
         // TODO: millorar l'explicacio
-        System.out.println("Primer, per favor, introdueix el nom dels jugadors. Quan acabi, prem intro per començar");
+        System.out.println("Introdueix el nom dels jugadors. Quan acabi, premi intro per començar");
        
         int cntJ=1; String name;
         do {
@@ -71,6 +71,6 @@ public class Partida {
             }
         } while (!name.equals(""));
         if (jugadors.length()==0) 
-            throw new Exception("Que fas? no vols jugar? No hi ha jugadors");
+            throw new Exception("Que fas? no vols jugar? (No hi han jugadors)");
     }
 }
